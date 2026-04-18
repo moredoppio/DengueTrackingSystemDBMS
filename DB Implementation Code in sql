@@ -1,0 +1,203 @@
+CREATE DATABASE DengueTrackingSystem;
+
+CREATE TABLE Addresses (
+    address_id INT PRIMARY KEY AUTO_INCREMENT,
+    street_address VARCHAR(255),
+    city VARCHAR(50),
+    district VARCHAR(50),
+    division VARCHAR(50),
+    postal_code VARCHAR(10),
+    latitude DECIMAL(11, 8),
+    longitude DECIMAL(11, 8)
+);
+
+CREATE TABLE Hospitals (
+    hospital_id INT PRIMARY KEY AUTO_INCREMENT,
+    hospital_name VARCHAR(100) NOT NULL,
+    hospital_type ENUM('Public', 'Private', 'Clinic') NOT NULL,
+    total_beds INT,
+    icu_beds INT,
+    street_address VARCHAR(255) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    district VARCHAR(50) NOT NULL,
+    division VARCHAR(50) NOT NULL,
+    postal_code VARCHAR(10) NOT NULL,
+    latitude DECIMAL(11, 8),
+    longitude DECIMAL(11, 8)
+);
+
+CREATE TABLE Hospital_Phones (
+    hospital_phone_id INT PRIMARY KEY AUTO_INCREMENT,
+    hospital_id INT NOT NULL,
+    hospital_phone_number VARCHAR(11) NOT NULL,
+    FOREIGN KEY (hospital_id) REFERENCES Hospitals(hospital_id) ON DELETE CASCADE
+);
+
+CREATE TABLE People (
+    people_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    national_id VARCHAR(20) UNIQUE NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    date_of_birth DATE NOT NULL,
+    age INT AS (TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE())),
+    blood_type ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL,
+    email VARCHAR(100)
+);
+
+CREATE TABLE People_Phones (
+    phone_id INT PRIMARY KEY AUTO_INCREMENT,
+    people_id INT NOT NULL,
+    phone_number VARCHAR(11) NOT NULL,
+    FOREIGN KEY (people_id) REFERENCES People(people_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Emergency_Contacts (
+    contact_id INT PRIMARY KEY AUTO_INCREMENT,
+    people_id INT NOT NULL,
+    contact_name VARCHAR(100) NOT NULL,
+    contact_number VARCHAR(11) NOT NULL,
+    FOREIGN KEY (people_id) REFERENCES People(people_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Patients (
+    patient_id INT PRIMARY KEY,
+    FOREIGN KEY (patient_id) REFERENCES People(people_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Donors (
+    donor_id INT PRIMARY KEY,
+    address_id INT,
+    FOREIGN KEY (donor_id) REFERENCES People(people_id) ON DELETE CASCADE,
+    FOREIGN KEY (address_id) REFERENCES Addresses(address_id)
+);
+
+CREATE TABLE ResidesAt (
+    resides_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    address_id INT,
+    is_primary BOOLEAN DEFAULT FALSE NOT NULL,
+    address_type ENUM('Permanent', 'Current', 'Work') NOT NULL,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (address_id) REFERENCES Addresses(address_id)
+);
+
+CREATE TABLE Users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    role ENUM('Doctor', 'Nurse', 'Technician', 'Admin') NOT NULL,
+    hospital_id INT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    FOREIGN KEY (hospital_id) REFERENCES Hospitals(hospital_id),
+    CONSTRAINT chk_hospital_id_required CHECK (role = 'Admin' OR hospital_id IS NOT NULL)
+);
+
+CREATE TABLE User_Phones (
+    user_phone_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    user_phone_number VARCHAR(11) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Encounter (
+    encounter_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    hospital_id INT NOT NULL,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (hospital_id) REFERENCES Hospitals(hospital_id)
+);
+
+CREATE TABLE DengueDetails (
+    dengue_id INT PRIMARY KEY AUTO_INCREMENT,
+    encounter_id INT NOT NULL,
+    diagnosis_date DATE NOT NULL,
+    dengue_type ENUM('Classic', 'Hemorrhagic', 'Shock Syndrome') NOT NULL,
+    outcome ENUM('Recovered', 'Deceased', 'Under Treatment', 'Referred') NOT NULL,
+    hospitalization_required BOOLEAN DEFAULT TRUE,
+    icu_admission BOOLEAN DEFAULT FALSE,
+    severity_level ENUM('Mild', 'Moderate', 'Severe', 'Critical'),
+    warning_signs TEXT,
+    travel_history TEXT,
+    infection_source ENUM('Local', 'Travel', 'Indeterminate'),
+    follow_up_date DATE,
+    doctors_note TEXT,
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id)
+);
+
+CREATE TABLE Treatments (
+    treatment_id INT PRIMARY KEY AUTO_INCREMENT,
+    encounter_id INT NOT NULL,
+    doctor_id INT NOT NULL,
+    treatment_type ENUM('Inpatient', 'Outpatient', 'ICU') NOT NULL,
+    initial_diagnosis TEXT NOT NULL,
+    prescribed_medications TEXT,
+    iv_fluid_required BOOLEAN DEFAULT FALSE,
+    transfusion_required BOOLEAN DEFAULT FALSE,
+    admission_date DATE,
+    discharge_date DATE,
+    treatment_duration INT,
+    treatment_cost DECIMAL(10, 5),
+    treatment_notes TEXT,
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id),
+    FOREIGN KEY (doctor_id) REFERENCES Users(user_id)
+);
+
+CREATE TABLE LabTests (
+    test_id INT PRIMARY KEY AUTO_INCREMENT,
+    encounter_id INT NOT NULL,
+    technician_id INT NOT NULL,
+    test_date DATE NOT NULL,
+    test_type ENUM('NS1 Antigen','IgM Antibody','IgG Antibody','PCR','Complete Blood Count','Platelet Count') NOT NULL,
+    test_result ENUM('Positive', 'Negative', 'Inconclusive'),
+    result_value DECIMAL(10, 2),
+    normal_range DECIMAL(10, 2) NOT NULL,
+    lab_name VARCHAR(100) NOT NULL,
+    technicians_notes TEXT,
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id),
+    FOREIGN KEY (technician_id) REFERENCES Users(user_id)
+);
+
+CREATE TABLE DailyMonitoring (
+    monitor_date DATE NOT NULL,
+    encounter_id INT NOT NULL,
+    nurse_id INT NOT NULL,
+    temperature DECIMAL(4, 2) NOT NULL,
+    blood_pressure DECIMAL(5, 2) NOT NULL,
+    platelet_count INT NOT NULL,
+    hematocrit_level DECIMAL(4, 1) NOT NULL,
+    urine_output DECIMAL(6, 2) NOT NULL,
+    respiratory_rate INT NOT NULL,
+    oxygen_saturation INT NOT NULL,
+    pain_level INT NOT NULL,
+    doctor_notes TEXT,
+    nurse_notes TEXT,
+    PRIMARY KEY (monitor_date, encounter_id),
+    FOREIGN KEY (nurse_id) REFERENCES Users(user_id),
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id)
+);
+
+CREATE TABLE BloodInventory (
+    blood_bag_id INT AUTO_INCREMENT,
+    hospital_id INT NOT NULL,
+    donor_id INT NOT NULL,
+    blood_type ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL,
+    component_type ENUM('Whole Blood', 'Red Blood Cells', 'Platelet', 'Fresh Frozen Plasma', 'Cryoprecipitate') NOT NULL,
+    amount DECIMAL(6, 2) NOT NULL,
+    status_of_bag ENUM('Available', 'Reserved', 'Used', 'Expired') NOT NULL,
+    storage_temperature DECIMAL(4, 2) NOT NULL,
+    donation_date DATE NOT NULL,
+    processing_date DATE NOT NULL,
+    expiry_date DATE NOT NULL,
+    is_irradiated BOOLEAN DEFAULT FALSE NOT NULL,
+    is_leuko_reduced BOOLEAN DEFAULT FALSE NOT NULL,
+    encounter_id INT,
+    transfusion_date DATE,
+    compatibility DECIMAL (10,5),
+    PRIMARY KEY (blood_bag_id, hospital_id),
+    FOREIGN KEY (hospital_id) REFERENCES Hospitals(hospital_id),
+    FOREIGN KEY (donor_id) REFERENCES Donors(donor_id),
+    FOREIGN KEY (encounter_id) REFERENCES Encounter(encounter_id)
+);
