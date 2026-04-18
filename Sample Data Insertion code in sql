@@ -1,0 +1,281 @@
+INSERT INTO Addresses (street_address, city, district, division, postal_code, latitude, longitude) VALUES
+('123 Mirpur Rd', 'Dhaka', 'Dhaka', 'Dhaka', '1216', 23.777176, 90.333152),
+('45 Station Rd', 'Chittagong', 'Chattogram', 'Chattogram', '4000', 22.335109, 91.834473),
+('12 Zindabazar', 'Sylhet', 'Sylhet', 'Sylhet', '3100', 24.894930, 91.868706),
+('88 Kazihata', 'Rajshahi', 'Rajshahi', 'Rajshahi', '6000', 24.374515, 88.604166),
+('102 Boyra Main Rd', 'Khulna', 'Khulna', 'Khulna', '9100', 22.845641, 89.540306),
+('15 Alekanda', 'Barisal', 'Barishal', 'Barishal', '8200', 22.701002, 90.353451),
+('55 Modern Mor', 'Rangpur', 'Rangpur', 'Rangpur', '5400', 25.743892, 89.275227),
+('9 Ganginar Par', 'Mymensingh', 'Mymensingh', 'Mymensingh', '2200', 24.747149, 90.420273),
+('22 Kandirpar', 'Comilla', 'Cumilla', 'Chittagong', '3500', 23.460651, 91.180908),
+('7 Chashara', 'Narayanganj', 'Narayanganj', 'Dhaka', '1400', 23.623782, 90.500013);
+
+INSERT INTO Hospitals (hospital_name, hospital_type, total_beds, icu_beds, street_address, city, district, division, postal_code, latitude, longitude) VALUES
+('Dhaka Medical College Hospital', 'Public', 2300, 50, '1 Ramna', 'Dhaka', 'Dhaka', 'Dhaka', '1000', 23.7258, 90.3976),
+('Evercare Hospital', 'Private', 450, 30, 'Plot 81, Block E', 'Dhaka', 'Dhaka', 'Dhaka', '1229', 23.8103, 90.4312),
+('City Eye Clinic', 'Clinic', 20, 0, '12 Dhanmondi', 'Dhaka', 'Dhaka', 'Dhaka', '1205', 23.7461, 90.3742),
+('Chittagong General Hospital', 'Public', 250, 10, 'Anderkilla', 'Chittagong', 'Chattogram', 'Chattogram', '4000', 22.3397, 91.8365),
+('Square Hospital', 'Private', 400, 25, '18/F Bir Uttam Qazi Nuruzzaman Sarak', 'Dhaka', 'Dhaka', 'Dhaka', '1205', 23.7531, 90.3815),
+('Sylhet Women’s Clinic', 'Clinic', 50, 5, 'Nayasarak', 'Sylhet', 'Sylhet', 'Sylhet', '3100', 24.8993, 91.8720),
+('Rajshahi Medical College', 'Public', 1200, 20, 'Greater Road', 'Rajshahi', 'Rajshahi', 'Rajshahi', '6000', 24.3707, 88.5832),
+('United Hospital', 'Private', 500, 40, 'Plot 15, Road 71', 'Dhaka', 'Dhaka', 'Dhaka', '1212', 23.7937, 90.4145),
+('Green View Clinic', 'Clinic', 30, 2, 'Shaheb Bazar', 'Rajshahi', 'Rajshahi', 'Rajshahi', '6100', 24.3683, 88.6010),
+('Barisal Sadar Hospital', 'Public', 300, 8, 'Hospital Road', 'Barisal', 'Barishal', 'Barishal', '8200', 22.6956, 90.3644);
+
+INSERT INTO Hospital_Phones (hospital_id, hospital_phone_number) VALUES
+(1, '01711111111'), (1, '01711111112'),
+(2, '01722222222'), (2, '01722222223'),
+(3, '01733333333'), (3, '01733333334'),
+(4, '01744444444'), (4, '01744444445'),
+(5, '01755555555'), (5, '01755555556'),
+(6, '01766666666'), (6, '01766666667'),
+(7, '01777777777'), (7, '01777777778'),
+(8, '01788888888'), (8, '01788888889'),
+(9, '01799999999'), (9, '01799999990'),
+(10, '01811111111'), (10, '01811111112');
+
+INSERT INTO People (first_name, last_name, national_id, gender, date_of_birth, blood_type, email) VALUES
+('Arif', 'Hossain', 'NID001', 'Male', '1990-05-15', 'A+', 'arif.h@example.com'),
+('Fatima', 'Akter', 'NID002', 'Female', '1992-08-20', 'A+', 'fatima.a@example.com'),
+('Sam', 'Ali', 'NID003', 'Other', '1995-03-10', 'A+', 'sam.a@example.com'),
+('Rahat', 'Khan', 'NID004', 'Male', '1988-12-01', 'A-', 'rahat.k@example.com'),
+('Nusrat', 'Jahan', 'NID005', 'Female', '1994-06-25', 'A-', 'nusrat.j@example.com'),
+('Alex', 'Bhuiyan', 'NID006', 'Other', '1991-01-12', 'A-', 'alex.b@example.com'),
+('Kamal', 'Ahmed', 'NID007', 'Male', '1985-09-30', 'B+', 'kamal.a@example.com'),
+('Sadia', 'Islam', 'NID008', 'Female', '1993-02-14', 'B+', 'sadia.i@example.com'),
+('Jordan', 'Huda', 'NID009', 'Other', '1997-11-22', 'B+', 'jordan.h@example.com'),
+('Tanvir', 'Rahman', 'NID010', 'Male', '1982-04-05', 'B-', 'tanvir.r@example.com'),
+('Mehnaz', 'Chowdhury', 'NID011', 'Female', '1996-07-19', 'B-', 'mehnaz.c@example.com'),
+('Casey', 'Talukder', 'NID012', 'Other', '1990-10-08', 'B-', 'casey.t@example.com'),
+('Sabbir', 'Mahmud', 'NID013', 'Male', '1989-03-21', 'AB+', 'sabbir.m@example.com'),
+('Rina', 'Begum', 'NID014', 'Female', '1991-12-15', 'AB+', 'rina.b@example.com'),
+('Skyler', 'Sarkar', 'NID015', 'Other', '1998-05-30', 'AB+', 'skyler.s@example.com'),
+('Fahim', 'Uddin', 'NID016', 'Male', '1987-01-10', 'AB-', 'fahim.u@example.com'),
+('Jarin', 'Tasnim', 'NID017', 'Female', '1995-09-05', 'AB-', 'jarin.t@example.com'),
+('Riley', 'Miah', 'NID018', 'Other', '1992-06-18', 'AB-', 'riley.m@example.com'),
+('Imran', 'Hasan', 'NID019', 'Male', '1984-11-11', 'O+', 'imran.h@example.com'),
+('Laila', 'Parveen', 'NID020', 'Female', '1993-04-28', 'O+', 'laila.p@example.com'),
+('Morgan', 'Karim', 'NID021', 'Other', '1996-02-02', 'O+', 'morgan.k@example.com'),
+('Zubair', 'Alam', 'NID022', 'Male', '1990-07-07', 'O-', 'zubair.a@example.com'),
+('Farhana', 'Yasmin', 'NID023', 'Female', '1994-10-12', 'O-', 'farhana.y@example.com'),
+('Taylor', 'Quader', 'NID024', 'Other', '1991-12-25', 'O-', 'taylor.q@example.com');
+
+
+INSERT INTO People_Phones (people_id, phone_number) VALUES
+(1, '01710000001'), (1, '01710000002'),
+(2, '01710000003'), (2, '01710000004'),
+(3, '01710000005'), (4, '01710000006'),
+(5, '01710000007'), (6, '01710000008'),
+(7, '01710000009'), (8, '01710000010'),
+(9, '01710000011'), (10, '01710000012');
+
+INSERT INTO Emergency_Contacts (people_id, contact_name, contact_number) VALUES
+(1, 'Karim Hossain', '01910000001'),
+(2, 'Abul Akter', '01910000002'),
+(3, 'Noor Ali', '01910000003'),
+(4, 'Selina Khan', '01910000004'),
+(5, 'Jahanara Begum', '01910000005'),
+(6, 'Babul Bhuiyan', '01910000006'),
+(7, 'Kamrun Ahmed', '01910000007'),
+(8, 'Israt Islam', '01910000008'),
+(9, 'Huda Senior', '01910000009'),
+(10, 'Mina Rahman', '01910000010');
+
+INSERT INTO Patients (patient_id) VALUES
+(1), (2), (3), (4), (5),  -- Patients only
+(11), (12), (13), (14), (15); -- Both Patient and Donor
+
+INSERT INTO Donors (donor_id, address_id) VALUES
+(6, 1), (7, 2), (8, 3), (9, 4), (10, 5), -- Donors only
+(11, 6), (12, 7), (13, 8), (14, 9), (15, 10); -- Both Patient and Donor
+
+Breakdown so far:
+IDs 1–5: Patients only.
+IDs 6–10: Donors only.
+IDs 11–15: Both Patients and Donors.
+IDs 16–24: Available for future entities.
+
+INSERT INTO ResidesAt (patient_id, address_id, is_primary, address_type) VALUES
+(1, 1, TRUE, 'Permanent'),
+(1, 2, FALSE, 'Current'),
+(2, 3, TRUE, 'Work'),
+(3, 4, TRUE, 'Permanent'),
+(4, 5, TRUE, 'Current'),
+(5, 6, TRUE, 'Work'),
+(11, 7, TRUE, 'Permanent'),
+(12, 8, TRUE, 'Current'),
+(13, 9, TRUE, 'Work'),
+(14, 10, TRUE, 'Permanent'),
+(15, 1, FALSE, 'Current'),
+(2, 2, FALSE, 'Permanent');
+
+INSERT INTO Users (role, hospital_id, username, password, first_name, last_name, email) VALUES
+('Doctor', 1, 'dr_arif', 'pass123', 'Arif', 'Hossain', 'arif.doc@hospital.com'),
+('Nurse', 2, 'nurse_fatima', 'pass123', 'Fatima', 'Akter', 'fatima.nurse@hospital.com'),
+('Technician', 3, 'tech_sam', 'pass123', 'Sam', 'Ali', 'sam.tech@hospital.com'),
+('Admin', NULL, 'admin_system', 'root123', 'Super', 'Admin', 'admin@system.com'),
+('Doctor', 4, 'dr_rahat', 'pass123', 'Rahat', 'Khan', 'rahat.doc@hospital.com'),
+('Nurse', 5, 'nurse_nusrat', 'pass123', 'Nusrat', 'Jahan', 'nusrat.nurse@hospital.com'),
+('Technician', 6, 'tech_alex', 'pass123', 'Alex', 'Bhuiyan', 'alex.tech@hospital.com'),
+('Doctor', 7, 'dr_kamal', 'pass123', 'Kamal', 'Ahmed', 'kamal.doc@hospital.com'),
+('Nurse', 8, 'nurse_sadia', 'pass123', 'Sadia', 'Islam', 'sadia.nurse@hospital.com'),
+('Admin', 9, 'hospital_admin', 'pass123', 'Jordan', 'Huda', 'jordan.admin@hospital.com');
+
+INSERT INTO User_Phones (user_id, user_phone_number) VALUES
+(1, '01510000001'), (1, '01510000002'),
+(2, '01510000003'), (3, '01510000004'),
+(4, '01510000005'), (5, '01510000006'),
+(6, '01510000007'), (7, '01510000008'),
+(8, '01510000009'), (9, '01510000010');
+
+INSERT INTO Encounter (patient_id, hospital_id) VALUES
+(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
+(11, 6), (12, 7), (13, 8), (14, 9), (15, 10);
+
+INSERT INTO DengueDetails (encounter_id, diagnosis_date, dengue_type, outcome, severity_level, infection_source, hospitalization_required, icu_admission, warning_signs) VALUES
+(1, '2023-10-01', 'Classic', 'Recovered', 'Mild', 'Local', TRUE, FALSE, 'No major warning signs'),
+(2, '2023-10-02', 'Hemorrhagic', 'Deceased', 'Critical', 'Travel', TRUE, TRUE, 'Severe mucosal bleeding'),
+(3, '2023-10-03', 'Shock Syndrome', 'Under Treatment', 'Severe', 'Indeterminate', TRUE, TRUE, 'Narrow pulse pressure, cold limbs'),
+(4, '2023-10-04', 'Classic', 'Referred', 'Moderate', 'Local', TRUE, FALSE, 'Persistent vomiting, lethargy'),
+(5, '2023-10-05', 'Hemorrhagic', 'Recovered', 'Severe', 'Travel', TRUE, TRUE, 'Abdominal pain, platelet drop'),
+(6, '2023-10-06', 'Shock Syndrome', 'Deceased', 'Critical', 'Local', TRUE, TRUE, 'Multi-organ involvement'),
+(7, '2023-10-07', 'Classic', 'Under Treatment', 'Mild', 'Indeterminate', FALSE, FALSE, 'Mild headache'),
+(8, '2023-10-08', 'Hemorrhagic', 'Referred', 'Moderate', 'Travel', TRUE, FALSE, 'Liver enlargement'),
+(9, '2023-10-09', 'Shock Syndrome', 'Recovered', 'Severe', 'Local', TRUE, TRUE, 'Vitals stabilized after shock'),
+(10, '2023-10-10', 'Classic', 'Under Treatment', 'Moderate', 'Indeterminate', TRUE, FALSE, 'High fever, dehydration');
+
+INSERT INTO Treatments (encounter_id, doctor_id, treatment_type, initial_diagnosis, prescribed_medications, iv_fluid_required, transfusion_required, admission_date, discharge_date, treatment_duration, treatment_cost, treatment_notes) VALUES
+(1, 1, 'Inpatient', 'Classic Dengue - Mild', 'Paracetamol, ORS', TRUE, FALSE, '2023-10-01', '2023-10-05', 4, 12000.50000, 'Standard recovery, patient stable.'),
+(2, 5, 'ICU', 'Hemorrhagic - Critical', 'IV Fluids, Antibiotics', TRUE, TRUE, '2023-10-02', '2023-10-03', 1, 45000.75000, 'Severe bleeding; patient succumbed to complications.'),
+(3, 8, 'ICU', 'Shock Syndrome - Severe', 'Inotropes, IV Fluids', TRUE, FALSE, '2023-10-03', NULL, NULL, 35000.00000, 'Ongoing intensive monitoring for shock reversal.'),
+(4, 1, 'Inpatient', 'Classic Dengue - Moderate', 'Paracetamol, IV Fluids', TRUE, FALSE, '2023-10-04', '2023-10-05', 1, 8500.25000, 'Referred to specialist hospital for persistent vomiting.'),
+(5, 5, 'ICU', 'Hemorrhagic - Severe', 'Platelet concentrate, IV Fluids', TRUE, TRUE, '2023-10-05', '2023-10-15', 10, 85000.00000, 'Required multiple transfusions; fully recovered.'),
+(6, 8, 'ICU', 'Shock Syndrome - Critical', 'IV Fluids, Oxygen', TRUE, FALSE, '2023-10-06', '2023-10-06', 0, 25000.00000, 'Rapid deterioration upon arrival.'),
+(7, 1, 'Outpatient', 'Classic Dengue - Mild', 'Paracetamol, Rest', FALSE, FALSE, '2023-10-07', '2023-10-07', 0, 1500.00000, 'Home management advised; monitoring vitals.'),
+(8, 5, 'Inpatient', 'Hemorrhagic - Moderate', 'IV Fluids, Vit K', TRUE, FALSE, '2023-10-08', '2023-10-09', 1, 9000.50000, 'Stable but referred for higher-level hematology support.'),
+(9, 8, 'ICU', 'Shock Syndrome - Severe', 'Plasma expanders, IV Fluids', TRUE, FALSE, '2023-10-09', '2023-10-18', 9, 62000.00000, 'Shock managed successfully; patient discharged.'),
+(10, 1, 'Inpatient', 'Classic Dengue - Moderate', 'Paracetamol, IV Fluids', TRUE, FALSE, '2023-10-10', NULL, NULL, 15000.00000, 'Current inpatient; fever trending down.');
+
+INSERT INTO LabTests (encounter_id, technician_id, test_date, test_type, test_result, result_value, normal_range, lab_name, technicians_notes) VALUES
+-- Encounter 1 (Classic/Recovered)
+(1, 3, '2023-10-01', 'NS1 Antigen', 'Positive', 5.20, 1.00, 'Central Lab', 'Early detection confirmed.'),
+(1, 7, '2023-10-01', 'Complete Blood Count', 'Negative', 145000.00, 150000.00, 'Central Lab', 'Platelets near lower limit.'),
+
+-- Encounter 2 (Hemorrhagic/Deceased - Severe)
+(2, 3, '2023-10-02', 'Platelet Count', 'Negative', 45000.00, 150000.00, 'City Diagnostics', 'Critical thrombocytopenia.'),
+(2, 7, '2023-10-02', 'PCR', 'Positive', 8.50, 0.00, 'City Diagnostics', 'High viral load detected.'),
+
+-- Encounter 3 (Shock Syndrome/Under Treatment)
+(3, 3, '2023-10-03', 'NS1 Antigen', 'Positive', 4.10, 1.00, 'Evercare Lab', 'Confirmed active infection.'),
+(3, 7, '2023-10-04', 'IgM Antibody', 'Inconclusive', 0.80, 1.10, 'Evercare Lab', 'Borderline result, retest suggested.'),
+
+-- Encounter 4 (Classic/Referred)
+(4, 3, '2023-10-04', 'Complete Blood Count', 'Negative', 90000.00, 150000.00, 'Square Lab', 'Moderate drop in platelets.'),
+
+-- Encounter 5 (Hemorrhagic/Recovered - Severe)
+(5, 7, '2023-10-05', 'NS1 Antigen', 'Positive', 6.30, 1.00, 'United Lab', 'Strong positive.'),
+(5, 3, '2023-10-06', 'IgG Antibody', 'Negative', 0.20, 1.10, 'United Lab', 'No previous immunity detected.'),
+
+-- Encounter 6 (Shock Syndrome/Deceased)
+(6, 7, '2023-10-06', 'Platelet Count', 'Negative', 15000.00, 150000.00, 'Central Lab', 'Extremely critical level.'),
+
+-- Encounter 7 (Classic/Outpatient)
+(7, 3, '2023-10-07', 'NS1 Antigen', 'Positive', 2.10, 1.00, 'LabAid', 'Low viral presence.'),
+(7, 7, '2023-10-07', 'Complete Blood Count', 'Positive', 160000.00, 150000.00, 'LabAid', 'Within normal range.'),
+
+-- Encounter 8 (Hemorrhagic/Referred)
+(8, 3, '2023-10-08', 'IgM Antibody', 'Positive', 3.50, 1.10, 'City Diagnostics', 'Seroconversion confirmed.'),
+
+-- Encounter 9 (Shock Syndrome/Recovered)
+(9, 7, '2023-10-09', 'PCR', 'Positive', 9.10, 0.00, 'Central Lab', 'DENV-2 serotype confirmed.'),
+(9, 3, '2023-10-10', 'Platelet Count', 'Negative', 55000.00, 150000.00, 'Central Lab', 'Monitoring recovery trend.'),
+
+-- Encounter 10 (Classic/Under Treatment)
+(10, 7, '2023-10-10', 'NS1 Antigen', 'Positive', 3.30, 1.00, 'Ibn Sina Lab', 'Positive.'),
+(10, 3, '2023-10-11', 'Complete Blood Count', 'Inconclusive', 110000.00, 150000.00, 'Ibn Sina Lab', 'Sample hemolyzed, result approximate.');
+
+INSERT INTO DailyMonitoring (monitor_date, encounter_id, nurse_id, temperature, blood_pressure, platelet_count, hematocrit_level, urine_output, respiratory_rate, oxygen_saturation, pain_level, nurse_notes) VALUES
+-- Encounter 1 (4 days duration)
+('2023-10-01', 1, 2, 102.50, 110.70, 105000, 42.5, 1200.00, 20, 98, 6, 'Patient admitted with high fever.'),
+('2023-10-02', 1, 2, 101.20, 112.65, 98000, 43.1, 1100.00, 18, 99, 4, 'Fever subsiding, monitoring platelets.'),
+('2023-10-03', 1, 2, 99.80, 115.75, 92000, 44.0, 1300.00, 18, 99, 2, 'Stable, oral intake good.'),
+('2023-10-04', 1, 2, 98.60, 120.80, 115000, 41.5, 1500.00, 16, 100, 1, 'Platelets rising, ready for discharge.'),
+
+-- Encounter 2 (1 day duration)
+('2023-10-02', 2, 6, 104.00, 85.55, 45000, 52.0, 400.00, 28, 92, 9, 'Critical condition, severe bleeding.'),
+
+-- Encounter 4 (1 day duration)
+('2023-10-04', 4, 9, 103.20, 95.60, 88000, 48.2, 700.00, 22, 95, 7, 'Persistent vomiting, referral initiated.'),
+
+-- Encounter 5 (10 days duration)
+('2023-10-05', 5, 6, 103.50, 90.60, 35000, 50.1, 500.00, 24, 94, 8, 'ICU admission, starting IV fluids.'),
+('2023-10-06', 5, 6, 102.80, 95.65, 30000, 51.5, 600.00, 22, 95, 7, 'Platelet transfusion given.'),
+('2023-10-07', 5, 6, 101.50, 100.70, 32000, 49.0, 800.00, 20, 96, 6, 'Vitals stabilizing slightly.'),
+('2023-10-08', 5, 6, 100.20, 105.70, 45000, 47.2, 1000.00, 20, 97, 5, 'Urine output improving.'),
+('2023-10-09', 5, 6, 99.50, 110.75, 60000, 45.5, 1200.00, 18, 98, 4, 'Patient more alert.'),
+('2023-10-10', 5, 6, 98.90, 112.75, 85000, 44.0, 1400.00, 18, 99, 3, 'Moved from ICU to General Ward.'),
+('2023-10-11', 5, 6, 98.60, 115.80, 110000, 42.5, 1500.00, 18, 99, 2, 'No new warning signs.'),
+('2023-10-12', 5, 6, 98.60, 118.80, 135000, 41.8, 1600.00, 16, 100, 1, 'Eating well.'),
+('2023-10-13', 5, 6, 98.40, 120.80, 155000, 41.0, 1700.00, 16, 100, 0, 'Recovery complete.'),
+('2023-10-14', 5, 6, 98.60, 120.80, 170000, 40.5, 1800.00, 16, 100, 0, 'Observation before discharge.'),
+
+-- Encounter 9 (9 days duration)
+('2023-10-09', 9, 9, 104.20, 80.50, 25000, 54.0, 300.00, 30, 90, 10, 'Severe shock, in ICU.'),
+('2023-10-10', 9, 9, 102.50, 85.55, 28000, 53.2, 450.00, 26, 92, 8, 'Plasma expanders administered.'),
+('2023-10-11', 9, 9, 101.00, 95.60, 40000, 49.5, 700.00, 22, 95, 7, 'BP stabilizing.'),
+('2023-10-12', 9, 9, 100.50, 100.65, 55000, 47.0, 900.00, 20, 96, 5, 'Improvement in consciousness.'),
+('2023-10-13', 9, 9, 99.20, 105.70, 75000, 45.5, 1100.00, 20, 98, 4, 'Started on oral fluids.'),
+('2023-10-14', 9, 9, 98.80, 110.70, 95000, 44.1, 1300.00, 18, 99, 3, 'Monitoring for fluid overload.'),
+('2023-10-15', 9, 9, 98.60, 112.75, 120000, 43.0, 1500.00, 18, 99, 2, 'Vitals stable.'),
+('2023-10-16', 9, 9, 98.60, 115.80, 145000, 42.2, 1600.00, 16, 100, 1, 'Standard ward care.'),
+('2023-10-17', 9, 9, 98.50, 118.80, 165000, 41.5, 1700.00, 16, 100, 0, 'Ready for discharge.');
+
+INSERT INTO BloodInventory (hospital_id, donor_id, blood_type, component_type, amount, status_of_bag, storage_temperature, donation_date, processing_date, expiry_date, is_irradiated, is_leuko_reduced, encounter_id, transfusion_date) VALUES
+-- Every combination of Blood Type and Component Type
+(1, 6, 'A+', 'Whole Blood', 450.00, 'Used', 4.0, '2023-09-25', '2023-09-25', '2023-10-30', FALSE, TRUE, 5, '2023-10-06'),
+(1, 7, 'A+', 'Red Blood Cells', 300.00, 'Available', 4.0, '2023-10-01', '2023-10-02', '2023-11-12', TRUE, TRUE, NULL, NULL),
+(2, 8, 'A+', 'Platelet', 50.00, 'Used', 22.0, '2023-10-05', '2023-10-05', '2023-10-10', FALSE, FALSE, 2, '2023-10-02'),
+(2, 9, 'A+', 'Fresh Frozen Plasma', 250.00, 'Used', -20.0, '2023-09-20', '2023-09-21', '2024-09-20', FALSE, FALSE, 7, '2023-10-18'),
+(3, 10, 'A+', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(3, 11, 'A-', 'Whole Blood', 450.00, 'Expired', 4.0, '2023-08-01', '2023-08-01', '2023-09-05', FALSE, FALSE, NULL, NULL),
+(4, 12, 'A-', 'Red Blood Cells', 300.00, 'Reserved', 4.0, '2023-10-10', '2023-10-11', '2023-11-21', TRUE, TRUE, 4, NULL),
+(4, 13, 'A-', 'Platelet', 50.00, 'Available', 22.0, '2023-10-15', '2023-10-15', '2023-10-20', FALSE, TRUE, NULL, NULL),
+(5, 14, 'A-', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(5, 15, 'A-', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(6, 6, 'B+', 'Whole Blood', 450.00, 'Available', 4.0, '2023-10-10', '2023-10-10', '2023-11-14', FALSE, FALSE, NULL, NULL),
+(6, 7, 'B+', 'Red Blood Cells', 300.00, 'Used', 4.0, '2023-10-05', '2023-10-06', '2023-11-16', TRUE, TRUE, 4, '2023-10-12'),
+(7, 8, 'B+', 'Platelet', 50.00, 'Used', 22.0, '2023-10-18', '2023-10-18', '2023-10-23', FALSE, TRUE, 7, '2023-10-20'),
+(7, 9, 'B+', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(8, 10, 'B+', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(8, 11, 'B-', 'Whole Blood', 450.00, 'Available', 4.0, '2023-10-12', '2023-10-12', '2023-11-16', FALSE, FALSE, NULL, NULL),
+(9, 12, 'B-', 'Red Blood Cells', 300.00, 'Available', 4.0, '2023-10-10', '2023-10-11', '2023-11-21', FALSE, TRUE, NULL, NULL),
+(9, 13, 'B-', 'Platelet', 50.00, 'Available', 22.0, '2023-10-15', '2023-10-15', '2023-10-20', FALSE, TRUE, NULL, NULL),
+(10, 14, 'B-', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(10, 15, 'B-', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(1, 6, 'AB+', 'Whole Blood', 450.00, 'Available', 4.0, '2023-10-12', '2023-10-12', '2023-11-16', FALSE, FALSE, NULL, NULL),
+(1, 7, 'AB+', 'Red Blood Cells', 300.00, 'Available', 4.0, '2023-10-10', '2023-10-11', '2023-11-21', FALSE, TRUE, NULL, NULL),
+(2, 8, 'AB+', 'Platelet', 50.00, 'Available', 22.0, '2023-10-15', '2023-10-15', '2023-10-20', TRUE, TRUE, NULL, NULL),
+(2, 9, 'AB+', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(3, 10, 'AB+', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(3, 11, 'AB-', 'Whole Blood', 450.00, 'Available', 4.0, '2023-10-12', '2023-10-12', '2023-11-16', FALSE, FALSE, NULL, NULL),
+(4, 12, 'AB-', 'Red Blood Cells', 300.00, 'Available', 4.0, '2023-10-10', '2023-10-11', '2023-11-21', FALSE, TRUE, NULL, NULL),
+(4, 13, 'AB-', 'Platelet', 50.00, 'Available', 22.0, '2023-10-15', '2023-10-15', '2023-10-20', FALSE, TRUE, NULL, NULL),
+(5, 14, 'AB-', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(5, 15, 'AB-', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(6, 6, 'O+', 'Whole Blood', 450.00, 'Available', 4.0, '2023-10-12', '2023-10-12', '2023-11-16', FALSE, FALSE, NULL, NULL),
+(6, 7, 'O+', 'Red Blood Cells', 300.00, 'Used', 4.0, '2023-10-05', '2023-10-06', '2023-11-16', TRUE, TRUE, 5, '2023-10-10'),
+(7, 8, 'O+', 'Platelet', 50.00, 'Used', 22.0, '2023-10-09', '2023-10-09', '2023-10-14', FALSE, TRUE, 5, '2023-10-11'),
+(7, 9, 'O+', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(8, 10, 'O+', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL),
+
+(8, 11, 'O-', 'Whole Blood', 450.00, 'Available', 4.0, '2023-10-12', '2023-10-12', '2023-11-16', FALSE, FALSE, NULL, NULL),
+(9, 12, 'O-', 'Red Blood Cells', 300.00, 'Available', 4.0, '2023-10-10', '2023-10-11', '2023-11-21', FALSE, TRUE, NULL, NULL),
+(9, 13, 'O-', 'Platelet', 50.00, 'Available', 22.0, '2023-10-15', '2023-10-15', '2023-10-20', FALSE, TRUE, NULL, NULL),
+(10, 14, 'O-', 'Fresh Frozen Plasma', 250.00, 'Available', -20.0, '2023-10-01', '2023-10-02', '2024-10-01', FALSE, FALSE, NULL, NULL),
+(10, 15, 'O-', 'Cryoprecipitate', 15.00, 'Available', -20.0, '2023-10-05', '2023-10-06', '2024-10-05', FALSE, FALSE, NULL, NULL);
