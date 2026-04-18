@@ -1,0 +1,17 @@
+People (Strong Entity): people_id, first_name, last_name, national_id, gender, date_of_birth, age (derived), blood_type, phone_number (multivalued), email, emergency_contact (multivalued as well as composite, components are contact_name and conctact_number), emergency_contact_number.
+People_Phones (Strong Entity, Dependent on People): phone_id, people_id (FK), phone_number.
+Emergency_Contacts (Strong Entity, Dependent on People): contact_id, people_id (FK), contact_name, contact_number.
+Patients (Strong Entity, Overlapping Subtype of People): patient_id (Primary Key REFERENCES Primary Key of People).
+Donors (Strong Entity, Overlapping Subtype of People): donor_id (Primary Key REFERENCES Primary Key of People), address_id (FK).
+Addresses (Strong Entity): address_id, street_address, city, district, division, postal_code, latitude, longitude.
+ResidesAt (Associative Entity resolving the many to many relationship between Patients and Addresses): resides_id, is_primary, address_type, patient_id (FK), address_id (FK)
+Hospitals (Strong Entity): hospital_id, hospital_name, hospital_type, total_beds, icu_beds, contact (multivalued), street_address, city, district, division, postal_code, latitude, longitude.
+Hospital_Phones (Strong Entity, Dependent on Hospitals): hospital_phone_id, hospital_id (FK), hospital_phone_number. 
+Encounter (Associative Entity resolving the many to many relationship between Patients and Hospitals): encounter_id, patient_id (FK), hospital_id (FK).
+Dengue Details (Strong Entity, Dependent on Encounter): dengue_id, encounter_id (FK), severity_level, dengue_type, warning_signs, infection_source, travel_history, icu_admission, hospitalization_required, diagnosis_date, outcome, follow_up_date, doctors_note, hematocrit_level (derived), platelet_count (derived)
+Treatments (Strong Entity, Dependent on Encounter): treatment_id, encounter_id (FK), doctor_id (FK) (REFERENCES usier_id of Users), initial_diagnosis, prescribed_medications, iv_fluid_required, transfusion_required, treatment_type, admission_date, discharge_date, treatment_duration, treatment_cost, treatment_notes.
+LabTests (Strong Entity, Dependent on Encounter): test_id, encounter_id (FK), technician_id (FK) (REFERENCES user_id of Users), technicians_notes, test_date, test_type, test_result, result_value, normal_range, lab_name.
+Daily Monitoring (Weak Entity, Dependent on Encounter): monitor_date, encounter_id (FK), PRIMARY KEY (monitor_date, encounter_id), temperature, blood_pressure, platelet_count, hematocrit_level, urine_output, respiratory_rate, oxygen_saturation, pain_level, doctor_notes, nurse_notes.
+Blood Inventory (Weak Entity, Dependent on Hospitals): blood_bag_id, blood_type, component_type, status, storage_temperature, expiry_date, amount, is_irradiated, is_leuko_reduced, processing_date, transfusion_date, compatibility, donation_date, PRIMARY KEY (blood_bag_id, hospital_id), donor_id (FK), hospital_id (FK), encounter_id (FK).
+Users (Strong Entity): user_id, username, password, role, first_name, last_name, user_phone_number, email, hospital_id (FK).
+User_Phones (Strong Entity, Dependent on Users): user_phone_id, user_id (FK), user_phone_number.
