@@ -1,0 +1,16 @@
+People to People_Phones: 1:N. People_Phones is a multivalued attribute of People.
+People to Emergency_Contacts: 1:N. Emergency_Conatacts is a multivalued attribute of People.
+People to Patients/Donors: 1:1 (Overlapping Subtypes) A person can be a patient, a donor, or both. Any person registered within the Dengue Tracking System must be either a Donor or a Patient.
+Patients to ResidesAt: 1:N.
+Addresses to ResidesAt: 1:N. ResdiesAt is an associative entity used to resolve the many to many relationship between Patients and Addresses.
+Donors to Addresses (Houses): N:1. We reuse the Addresses table for Donors to locate nearby Donors and only store the primary addresses of Donors. We do not make address an attribute of donors, like we do for hospitals, even though we are storing one address for each donor, because the same address can house multiple donors.
+Patients to Encounter: 1:N. One patient can have multiple Hospital Encounters.
+Hospitals to Hospital_Phones: 1:N. Hospital_Phones is a multivalued attribute of Hospitals.
+Hospitals to Encounter: 1:N. One Hospital hosts many Encounters. Encounter is an associative entity used to resolve the many to many relationship between Patients and Hospitals.
+Encounter to LabTests (Ordered)/Daily Monitoring (Tracked): 1:N. One encounter can have multiple Tests, since test_type is ENUM, and there are five different sorts of possible tests in this DBMS, each of which will have different test_result, result_value, normal_range, test_date etc. Likewise, there will be as many instances of DailyMonitoring associated to one instance of Encounter as the number of days the patient is monitored for that particular encounter.
+Encounter to DengueDetails (DiagnosedAs)/Treatments (AdministeredIn): 1:1. One instance of DengueDetails and Treatments each is treated like a summary of the Dengue case and the corresponding treatment applied. Even though information such as iv_fluid_required, transfusion_required, prescribed_medications etc can change over time, the database allows the tables to be edited so that those attributes can be changed over time.
+Donors to Blood Inventory (Donation): 1:N. One Donor can provide multiple blood bags over time.
+Hospitals to Blood Inventory (Stocks): 1:N. One Hospital manages a stock of many blood bags.
+Hospitals to Users (AuthorisedBy): 1:N. A single hospital authorizes multiple users to be able to access, store to, and retrieve and remove information from the database.
+Users to User_Phones: 1:N. User_Phones is a multivalued attribute for Users.
+Encounter to BloodInventory (Transfusion): 1:N. One encounter may require multiple blood bags for transfusion.
