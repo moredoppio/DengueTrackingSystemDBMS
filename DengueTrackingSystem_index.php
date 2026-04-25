@@ -7,7 +7,7 @@ if (!$conn->connect_error) {
     $count_query = $conn->query("SELECT COUNT(*) AS total FROM Users");
     $row = $count_query->fetch_assoc();
     $total_users = $row['total'] ?? 0;
-    $conn->close(); // Added this to close connection
+    $conn->close();
 }
 ?>
 <!DOCTYPE html>
